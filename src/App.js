@@ -1,31 +1,39 @@
+import SideNavigation from "./components/sideNav";
+import Header from "./components/header";
+import Home from './pages/home';
+import Movies from './pages/movies';
+import Admin from "./pages/admin";
+import { useState } from "react";
+import { Switch, Route } from "react-router-dom";
 
-function App() {
+const App = (props) => {
+
+  const [page, setPage] = useState('Home');
+
+
   return (
     <div className="container">
+      <Header />
       <div className="row">
-        <h1 className="mt-3">Go Watch a Movie</h1>
-        <hr className="mb-3"></hr>
-      </div>
-
-      <div className="row">
-        <div className="col-md-2">
-          <nav>
-            <ul className="list-group">
-              <li className="list-group-item">
-                <a href="/">Home</a>
-              </li>
-              <li className="list-group-item">
-                <a href="/movies">Movies</a>
-              </li>
-              <li className="list-group-item">
-                <a href="/admin">Manage Catalog</a>
-              </li>
-            </ul>
-          </nav>
+        <div className="col-md-2 col-xs">
+          <SideNavigation />
+        </div>
+        <div className="col">
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route exact path="/movies">
+              <Movies />
+            </Route>
+            <Route exact path="/admin">
+              <Admin />
+            </Route>
+          </Switch>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
