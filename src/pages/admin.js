@@ -1,7 +1,9 @@
 const Admin = (props) => {
   return (
     <>
-      <h3>This is the Admin page</h3>
+      <div className="container">
+        <h3>This is the Admin page</h3>
+      </div>
     </>
   )
 }

@@ -1,11 +1,11 @@
-const Home = () => {
+const Movie = (props) => {
   return (
     <>
       <div className="container">
-        <h3>This is the home page</h3>
+        <h3>One movie</h3>
       </div>
     </>
   );
 }
 
-export default Home;
+export default Movie;
