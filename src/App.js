@@ -4,8 +4,10 @@ import Home from './pages/home';
 import Movies from './pages/movie/movies';
 import Admin from "./pages/admin";
 import Movie from "./pages/movie/oneMovie";
+import CategoryHome from './pages/categories/categoryHome';
 import { useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import CategoryPage from "./pages/categories/categoryPage";
 
 const App = (props) => {
 
@@ -26,9 +28,18 @@ const App = (props) => {
             <Route exact path="/movies">
               <Movies />
             </Route>
-            <Route path="/movies/:id">
-              <Movie />
+            <Route
+              path="/movies/:id"
+              render={(props) => <Movie {...props} />}
+            />
+            <Route exact path="/by-category">
+              <CategoryHome />
             </Route>
+            <Route
+              exact
+              path="/by-category/:category"
+              render={(props) => <CategoryPage {...props} /> }
+            />
             <Route exact path="/admin">
               <Admin />
             </Route>

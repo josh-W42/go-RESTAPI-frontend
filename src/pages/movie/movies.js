@@ -18,9 +18,9 @@ const Movies = (props) => {
       <div className="container">
         <h3>This is the movies page</h3>
         <ul>
-          {movies.map((movie) => {
+          {movies.map((movie, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link to={`/movies/${movie.id}`}>
                   {movie.title} - {movie.runtime} mins
                 </Link>
